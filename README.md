@@ -1,1 +1,1 @@
-# MaginPotion.Responsive.Example
+# MagicPotion.Responsive.Example
