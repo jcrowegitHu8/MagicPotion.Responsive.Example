@@ -14,10 +14,12 @@ namespace MagicPotion.Web.Controllers
     public class IngredientMixingController : Controller
     {
 	    private readonly IIngredientManager _ingredientManager;
+	    private readonly IIngredientMixingManager _mixingManager;
 
-	    public IngredientMixingController(IIngredientManager ingredientManager)
+	    public IngredientMixingController(IIngredientManager ingredientManager, IIngredientMixingManager mixingManager)
 	    {
 		    _ingredientManager = ingredientManager;
+		    _mixingManager = mixingManager;
 	    }
 
 	    [System.Web.Mvc.HttpGet]
@@ -41,7 +43,7 @@ namespace MagicPotion.Web.Controllers
 	    [System.Web.Mvc.HttpPost]
 	    public JsonResult Mix([FromBody] IngredientMixingPostModel model)
 	    {
-		    var result =_ingredientManager.Mix(model.MoodId, model.IngredientId1, model.IngredientId2);
+		    var result = _mixingManager.Mix(model.MoodId, model.IngredientId1, model.IngredientId2);
 		    return Json(result, JsonRequestBehavior.DenyGet);
 	    }
     }

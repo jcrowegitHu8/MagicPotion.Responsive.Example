@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IIngredientManager.cs" />
+    <Compile Include="Interfaces\IIngredientManager.cs" />
+    <Compile Include="Interfaces\IIngredientMixingManager.cs" />
     <Compile Include="IngredientManager.cs" />
+    <Compile Include="IngredientMixingManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

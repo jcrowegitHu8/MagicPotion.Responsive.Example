@@ -39,64 +39,7 @@ namespace MagicPotion.Business
 			return _typeOptionRepo.GetAllEffects();
 		}
 
-		public IngredientMixingResult Mix(int moodId, int ingredientId1, int ingredientId2)
-		{
-			var result = new IngredientMixingResult();
-			var mixes = _potionRepo.GetAllMixes();
-			IngredientMix aMix;
-
-			if (IsAnIngredientFatal(ingredientId1, ingredientId2, mixes))
-			{
-				result.Message = @"You mixed a fatal substance and died.  Please be more careful next time. ¯\_(ツ)_/¯ ";
-				return result;
-			}
-
-			if (!TryGetMix(ingredientId1, ingredientId2,moodId, mixes, out aMix))
-			{
-
-				if (!TryGetMix(ingredientId2, ingredientId1,moodId, mixes, out aMix))
-				{
-					result.Message = @"BOOM! ¯\_(ツ)_/¯ Looks like an explosion happened. ";
-					return result;
-				}
-			}
-
-			result.SafeMix = true;
-			if (moodId == 1)
-			{
-				result.Message = $"You just leveled up your: {aMix.Effect}";
-			}
-			else
-			{
-				result.Message = $"You just exacerbated your: {aMix.Effect}";
-			}
-			return result;
-		}
-
-		public bool IsAnIngredientFatal(int ingredient1Id, int ingredient2Id, IEnumerable<IngredientMix> mixes)
-		{
-			var result = mixes.FirstOrDefault(o => (o.Ingredient1 == ingredient1Id && o.IsFatal)
-												   || (o.Ingredient2 == ingredient2Id && o.IsFatal));
-			if (result != null)
-			{
-				return true;
-			}
-			return false;
-		}
-
-		private bool TryGetMix(int ingredient1Id, int ingredient2Id, int mood, IEnumerable<IngredientMix> mixes, out IngredientMix mix)
-		{
-			mix = mixes.FirstOrDefault(o => o.Ingredient1 == ingredient1Id
-		   && o.Ingredient2 == ingredient2Id
-		   && (o.Mood == null || o.MoodType == mood));
-
-			if (mix != null)
-			{
-				return true;
-			}
-
-			return false;
-		}
+		
 
 		public Ingredient UpsertIngredient(Ingredient ingredient)
 		{

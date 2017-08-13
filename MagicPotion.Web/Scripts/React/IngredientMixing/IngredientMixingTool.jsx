@@ -91,33 +91,49 @@ var IngredientMixingTool = React.createClass({
 	renderMixResult() {
 		if (this.state.mixing) {
 			return (<div>
-				        <i className="fa fa-flask fa-pulse" style={{ color: 'green' }}
-				           title="loading"></i> &nbsp;Mixing...
+				<i className="fa fa-flask fa-pulse" style={{ color: 'green' }}
+					title="mixing"></i> &nbsp;Mixing...
 			        </div>);
 		}
 
-		if (this.state.mixResult && this.state.mixResult.Message && !this.state.mixResult.SafeMix) {
-			return (
-				<div className="alert alert-danger">
-					{this.state.mixResult.Message}
-				</div>);
-		}
+		if (this.state.mixResult) {
 
-		if (this.state.mixResult && this.state.mixResult.Message && this.state.mixResult.SafeMix) {
-			if (this.state.userMixData.moodId === "2") { //Sad
-				return (
-					<div className="alert alert-warning">
-						{this.state.mixResult.Message}
-					</div>);
+
+			if (this.state.mixResult.IsMixFatal) {
+
+
+				if (!this.state.mixResult.IsMixDocumented) {
+					return (
+						<div className="alert alert-danger">
+							BOOM! ¯\_(ツ)_/¯ Looks like an explosion happened. Mixing undocumented ingredients can do that.
+						</div>);
+				} else {
+					return (
+						<div className="alert alert-danger">
+							You mixed a fatal substance and died. Please be more careful next time. ¯\_(ツ)_/¯
+						</div>);
+				}
 			} else {
+				if (this.state.mixResult.IsMixDocumented) {
+					if (this.state.userMixData.moodId === "2") {//sad
+						return (
+							<div className="alert alert-warning">
+								You just exacerbated your: {this.state.mixResult.Effect}
+							</div>);
+					} else {
 
-				return (
-					<div className="alert alert-success">
-						{this.state.mixResult.Message}
-					</div>
-				);
+						return (
+							<div className="alert alert-success">
+								You just leveled up your: {this.state.mixResult.Effect}
+							</div>
+						);
+					}
+				}
+
 			}
 		}
+
+
 	},
 
 	render: function () {
@@ -136,43 +152,53 @@ var IngredientMixingTool = React.createClass({
 
 							</div>
 						</div>
-						<div className="panel-body">
-							<div className="row">
-								<div className="col-xs-12">
-									<div className="form-group">
-										<label>How are you feeling right now?</label>
-										<LabelValueDropdown
-											items={this.props.moods}
-											onChange={this.handleChange}
-											labelField={"Name"}
-											valueField={"Id"}
-											dataBindName={'userMixData.moodId'} />
+						<div className="panel-body" >
+							<form role="form">
+								<div className="row">
+									<div className="col-sm-6 col-md-4">
+										<div className="form-group">
+											<label>How are you feeling right now?</label>
+											<LabelValueDropdown
+												items={this.props.moods}
+												onChange={this.handleChange}
+												labelField={"Name"}
+												valueField={"Id"}
+												dataBindName={'userMixData.moodId'} />
+										</div>
 									</div>
-									<div className="form-group">
-										<label>Ingredient 1</label>
-										<LabelValueDropdown
-											items={this.props.ingredients}
-											onChange={this.handleChange}
-											labelField={"Name"}
-											valueField={"Id"}
-											dataBindName={'userMixData.ingredientId1'} />
-
+									<div className="col-sm-6 col-md-4">
+										<div className="form-group">
+											<label>Ingredient 1</label>
+											<LabelValueDropdown
+												items={this.props.ingredients}
+												onChange={this.handleChange}
+												labelField={"Name"}
+												valueField={"Id"}
+												dataBindName={'userMixData.ingredientId1'} />
+										</div>
 									</div>
-									<div className="form-group">
-										<label>Ingredient 2</label>
-										<LabelValueDropdown
-											items={this.props.ingredients}
-											onChange={this.handleChange}
-											labelField={"Name"}
-											valueField={"Id"}
-											dataBindName={'userMixData.ingredientId2'} />
-									</div>
-									<div className="form-group">
-										<label>Result</label>
-										{this.renderMixResult()}
+									<div className="col-sm-6 col-md-4">
+										<div className="form-group">
+											<label>Ingredient 2</label>
+											<LabelValueDropdown
+												items={this.props.ingredients}
+												onChange={this.handleChange}
+												labelField={"Name"}
+												valueField={"Id"}
+												dataBindName={'userMixData.ingredientId2'} />
+										</div>
 									</div>
 								</div>
-							</div>
+
+								<div className="row">
+									<div className="col-xs-12">
+										<div className="form-group">
+											<label>Result</label>
+											{this.renderMixResult()}
+										</div>
+									</div>
+								</div>
+							</form>
 						</div>
 						<div className="panel-footer clearfix">
 							<div className="pull-right">
