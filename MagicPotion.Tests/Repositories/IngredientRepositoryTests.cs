@@ -24,5 +24,15 @@ namespace MagicPotion.Tests
 			Assert.IsNotNull(ingredients);
 			Assert.IsTrue(ingredients.Any());
 		}
+
+		[TestCategory("Integration")]//Don't run integration tests on gated checkin. ONly for local development
+		[TestMethod]
+		public void GetAllIngredientMex_should_return_data()
+		{
+			var repo = new IngredientRepository();
+			var mixes = repo.GetAllMixes();
+			Assert.IsNotNull(mixes);
+			Assert.IsTrue(mixes.Any());
+		}
 	}
 }

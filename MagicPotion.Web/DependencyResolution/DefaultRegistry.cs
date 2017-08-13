@@ -32,6 +32,7 @@ namespace MagicPotion.Web.DependencyResolution {
                 });
             For<IIngredientManager>().Use<IngredientManager>();
 	        For<IIngredientRepository>().Use<IngredientRepository>();
+	        For<ITypeOptionRepository>().Use<TypeOptionRepository>();
 		}
 
         #endregion

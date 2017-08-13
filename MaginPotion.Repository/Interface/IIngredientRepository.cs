@@ -6,5 +6,6 @@ namespace MagicPotion.Repository
 	public interface IIngredientRepository
 	{
 		List<Ingredient> GetAllIngredients();
+		List<IngredientMix> GetAllMixes();
 	}
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MagicPotion.Business;
+using MagicPotion.Objects;
 
 namespace MagicPotion.Web.Controllers
 {
@@ -24,5 +25,20 @@ namespace MagicPotion.Web.Controllers
 
 			return View(ingredients);
         }
-    }
+
+	    [HttpGet]
+		public ActionResult Listview()
+	    {
+		    return View();
+	    }
+
+		[HttpGet]
+	    public JsonResult GetListviewInitData()
+	    {
+			var ingredients = _ingredientManager.GetAllIngredients();
+		    return Json(ingredients, JsonRequestBehavior.AllowGet);
+
+	    }
+
+	}
 }

@@ -47,9 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IIngredientRepository.cs" />
+    <Compile Include="BaseRepository.cs" />
+    <Compile Include="Interface\IIngredientRepository.cs" />
     <Compile Include="IngredientRepository.cs" />
+    <Compile Include="Interface\ITypeOptionRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeOptionRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

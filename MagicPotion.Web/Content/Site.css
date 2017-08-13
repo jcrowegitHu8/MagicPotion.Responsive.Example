@@ -15,3 +15,208 @@ select,
 textarea {
     max-width: 280px;
 }
+
+@media only screen and (max-width: 764px) {
+
+	/* Force table to not be like tables anymore */
+	.my-responsive-table table,
+	.my-responsive-table thead,
+	.my-responsive-table tbody,
+	.my-responsive-table th,
+	.my-responsive-table td,
+	.my-responsive-table tr {
+		display: block;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.my-responsive-table thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	.my-responsive-table tr {
+		border: 1px solid #ccc;
+	}
+
+	.my-responsive-table td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50% !important;
+		white-space: normal;
+		text-align: left;
+		word-wrap: break-word;
+	}
+
+	.my-responsive-table td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+		text-align: left;
+		font-weight: bold;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	/*
+	Label the data
+	*/
+	.my-responsive-table td:before {
+		content: attr(data-title);
+	}
+}
+
+@media only screen and (max-width: 992px) {
+
+	/* Force table to not be like tables anymore */
+	.my-md-responsive-table table,
+	.my-md-responsive-table thead,
+	.my-md-responsive-table tbody,
+	.my-md-responsive-table th,
+	.my-md-responsive-table td,
+	.my-md-responsive-table tr {
+		display: block;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.my-md-responsive-table thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	.my-md-responsive-table tr {
+		border: 1px solid #ccc;
+	}
+
+	.my-md-responsive-table td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50% !important;
+		white-space: normal;
+		text-align: left;
+		word-wrap: break-word;
+	}
+
+	.my-md-responsive-table td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+		text-align: left;
+		font-weight: bold;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	/*
+	Label the data
+	*/
+	.my-md-responsive-table td:before {
+		content: attr(data-title);
+	}
+}
+
+@media only screen and (max-width: 1200px) {
+
+	/* Force table to not be like tables anymore */
+	.my-lg-responsive-table table,
+	.my-lg-responsive-table thead,
+	.my-lg-responsive-table tbody,
+	.my-lg-responsive-table th,
+	.my-lg-responsive-table td,
+	.my-lg-responsive-table tr {
+		display: block;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.my-lg-responsive-table thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	.my-lg-responsive-table tr {
+		border: 1px solid #ccc;
+	}
+
+	.my-lg-responsive-table td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50% !important;
+		white-space: normal;
+		text-align: left;
+		word-wrap: break-word;
+	}
+
+	.my-lg-responsive-table td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+		text-align: left;
+		font-weight: bold;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	/*
+	Label the data
+	*/
+	.my-lg-responsive-table td:before {
+		content: attr(data-title);
+	}
+}
+
+.btn-outline {
+	color: inherit;
+	background-color: transparent;
+	transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+	color: #428bca;
+}
+
+.btn-success.btn-outline {
+	color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+	color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+	color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+	color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+	color: white;
+}
