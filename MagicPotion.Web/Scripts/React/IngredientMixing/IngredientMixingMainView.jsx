@@ -19,7 +19,7 @@
 			xhr.send();
 		}.bind(this));
 	},
-	
+
 
 	componentDidMount: function () {
 		this.handleRefresh();
@@ -35,9 +35,11 @@
 				<IngredientMixingTool
 					ingredients={this.state.initData.Ingredients}
 					moods={this.state.initData.Moods}
-					effects={this.state.initData.Effects}
-					mixes={this.state.initData.IngredientMixes}
 					submitMixUrl="/IngredientMixing/Mix"
+				/>
+
+				<IngredientMixListView
+					data={this.state.initData.IngredientMixes}
 				/>
 			</div>
 		);

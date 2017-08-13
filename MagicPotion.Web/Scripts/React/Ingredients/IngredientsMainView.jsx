@@ -13,7 +13,7 @@
 		this.setState({ showLoadingBox: true }, function () {
 			xhr.onload = function () {
 				var data = JSON.parse(xhr.responseText);
-				this.setState({ initData: data.results, showLoadingBox: false });
+				this.setState({ initData: data, showLoadingBox: false });
 
 			}.bind(this);
 			xhr.send();
@@ -30,17 +30,7 @@
 	},
 
 	componentDidMount: function () {
-		var xhr = new XMLHttpRequest();
-		xhr.open('get', this.props.getInitDataUrl, true);
-		xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-		this.setState({ showLoadingBox: true }, function () {
-			xhr.onload = function () {
-				var data = JSON.parse(xhr.responseText);
-				this.setState({ initData: data, showLoadingBox: false });
-
-			}.bind(this);
-			xhr.send();
-		}.bind(this));
+		this.handleRefresh();
 	},
 
 

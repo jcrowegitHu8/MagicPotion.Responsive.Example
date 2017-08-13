@@ -295,6 +295,7 @@
     <Content Include="Scripts\React\CdnFallback\react.min.js" />
     <Content Include="Scripts\React\IngredientMixing\IngredientMixingMainView.jsx" />
     <Content Include="Scripts\React\IngredientMixing\IngredientMixingTool.jsx" />
+    <Content Include="Scripts\React\IngredientMixing\IngredientMixListView.jsx" />
     <Content Include="Scripts\React\Ingredients\IngredientsMainView.jsx" />
     <Content Include="Scripts\React\Ingredients\IngredientsResultView.jsx" />
     <Content Include="Scripts\React\Shared\DropDown.jsx" />

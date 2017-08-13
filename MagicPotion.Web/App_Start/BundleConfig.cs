@@ -35,6 +35,7 @@ namespace MagicPotion.Web
 				"~/Scripts/React/Ingredients/IngredientsResultView.jsx",
 				"~/Scripts/React/Ingredients/IngredientsMainView.jsx",
 
+				"~/Scripts/React/IngredientMixing/IngredientMixListView.jsx",
 				"~/Scripts/React/IngredientMixing/IngredientMixingTool.jsx",
 				"~/Scripts/React/IngredientMixing/IngredientMixingMainView.jsx"
 			));

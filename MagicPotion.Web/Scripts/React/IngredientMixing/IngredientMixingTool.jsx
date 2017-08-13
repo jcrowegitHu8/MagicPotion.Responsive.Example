@@ -4,7 +4,8 @@ var IngredientMixingTool = React.createClass({
 		return {
 			userMixData: {},
 			mixResult: {},
-			mixing:false
+			mixing: false,
+			disableMixSubmit: true
 		};
 	},
 
@@ -56,10 +57,12 @@ var IngredientMixingTool = React.createClass({
 	handleMixing() {
 		if (this.state.userMixData &&
 			this.state.userMixData.moodId &&
-			this.state.userMixData.ingredient1 &&
-			this.state.userMixData.ingredient2) {
-			this.submitMix();
+			this.state.userMixData.ingredientId1 &&
+			this.state.userMixData.ingredientId2) {
+			this.setState({ disableMixSubmit: false });
 
+		} else {
+			this.setState({ disableMixSubmit: true });
 		}
 	},
 
@@ -78,33 +81,42 @@ var IngredientMixingTool = React.createClass({
 	},
 
 	handleChange(e) {
-		debugger;
 		var data = this.state;
 		var bindName = e.target.getAttribute('data-bind-name');
 		this.assign(data, bindName, e.target.value);
 		this.handleMixing();
+		this.setState({ mixResult: {} });
 	},
 
 	renderMixResult() {
 		if (this.state.mixing) {
 			return (<div>
-				<i className="fa fa-flask fa-pulse" style={{ color: 'green' }}
-					title="loading" ></i> &nbsp;Mixing...</div>)
+				        <i className="fa fa-flask fa-pulse" style={{ color: 'green' }}
+				           title="loading"></i> &nbsp;Mixing...
+			        </div>);
 		}
 
-		if (this.state.mixResult && this.state.mixResult.Message) {
+		if (this.state.mixResult && this.state.mixResult.Message && !this.state.mixResult.SafeMix) {
 			return (
 				<div className="alert alert-danger">
 					{this.state.mixResult.Message}
-				</div>)
+				</div>);
 		}
 
-		if (this.state.mixResult && this.state.mixResult.Message && this.state.MixResult.SafeMix === "true") {
-			return (
-				<div className="alert alert-success">
-					{this.state.mixResult.Message}
-				</div>
-			);
+		if (this.state.mixResult && this.state.mixResult.Message && this.state.mixResult.SafeMix) {
+			if (this.state.userMixData.moodId === "2") { //Sad
+				return (
+					<div className="alert alert-warning">
+						{this.state.mixResult.Message}
+					</div>);
+			} else {
+
+				return (
+					<div className="alert alert-success">
+						{this.state.mixResult.Message}
+					</div>
+				);
+			}
 		}
 	},
 
@@ -143,7 +155,7 @@ var IngredientMixingTool = React.createClass({
 											onChange={this.handleChange}
 											labelField={"Name"}
 											valueField={"Id"}
-											dataBindName={'userMixData.ingredient1'} />
+											dataBindName={'userMixData.ingredientId1'} />
 
 									</div>
 									<div className="form-group">
@@ -153,7 +165,7 @@ var IngredientMixingTool = React.createClass({
 											onChange={this.handleChange}
 											labelField={"Name"}
 											valueField={"Id"}
-											dataBindName={'userMixData.ingredient2'} />
+											dataBindName={'userMixData.ingredientId2'} />
 									</div>
 									<div className="form-group">
 										<label>Result</label>
@@ -164,8 +176,8 @@ var IngredientMixingTool = React.createClass({
 						</div>
 						<div className="panel-footer clearfix">
 							<div className="pull-right">
-								<button className="btn btn-primary " onClick={this.reset}>
-									<i className="fa fa-refresh"></i> Reset
+								<button className="btn btn-primary " onClick={this.submitMix} disabled={this.state.disableMixSubmit}>
+									<i className="fa fa-flask"></i> Mix
 								</button>
 							</div>
 						</div>

@@ -51,10 +51,10 @@ namespace MagicPotion.Business
 				return result;
 			}
 
-			if (!TryGetMix(ingredientId1, ingredientId2, mixes, out aMix))
+			if (!TryGetMix(ingredientId1, ingredientId2,moodId, mixes, out aMix))
 			{
 
-				if (!TryGetMix(ingredientId2, ingredientId2, mixes, out aMix))
+				if (!TryGetMix(ingredientId2, ingredientId1,moodId, mixes, out aMix))
 				{
 					result.Message = @"BOOM! ¯\_(ツ)_/¯ Looks like an explosion happened. ";
 					return result;
@@ -84,10 +84,11 @@ namespace MagicPotion.Business
 			return false;
 		}
 
-		private bool TryGetMix(int ingredient1Id, int ingredient2Id, IEnumerable<IngredientMix> mixes, out IngredientMix mix)
+		private bool TryGetMix(int ingredient1Id, int ingredient2Id, int mood, IEnumerable<IngredientMix> mixes, out IngredientMix mix)
 		{
 			mix = mixes.FirstOrDefault(o => o.Ingredient1 == ingredient1Id
-		   && o.Ingredient2 == ingredient2Id);
+		   && o.Ingredient2 == ingredient2Id
+		   && (o.Mood == null || o.MoodType == mood));
 
 			if (mix != null)
 			{
