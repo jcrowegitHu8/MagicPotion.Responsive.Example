@@ -1,0 +1,19 @@
+﻿@model List<MagicPotion.Objects.Ingredient>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ingredient</title>
+</head>
+<body>
+<div>
+	@foreach (var item in Model)
+	{
+		<div class="row">@item.Name</div>
+	}
+</div>
+</body>
+</html>

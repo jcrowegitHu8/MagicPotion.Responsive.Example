@@ -5,9 +5,15 @@ VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicPotion.Business", "MagicPotion.Business\MagicPotion.Business.csproj", "{A56D6A56-3332-4A4F-84C0-15116BB846D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaginPotion.Repository", "MaginPotion.Repository\MaginPotion.Repository.csproj", "{41129A1D-6B6F-4993-9539-2ABF04FA5559}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicPotion.Repository", "MaginPotion.Repository\MagicPotion.Repository.csproj", "{41129A1D-6B6F-4993-9539-2ABF04FA5559}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicPotion.Web", "MagicPotion.Web\MagicPotion.Web.csproj", "{EC0E6E0D-B554-4394-A3F6-DE23A7E152B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicPotion.Objects", "MagicPotion.Objects\MagicPotion.Objects.csproj", "{F2418EFA-CEC3-4909-9E05-D2512A46D412}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{01724A11-73F6-4523-93EF-E7D6FF4FB135}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicPotion.Tests", "MagicPotion.Tests\MagicPotion.Tests.csproj", "{EC97FB2D-F999-4ACB-920B-F00F7167F953}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,8 +33,19 @@ Global
 		{EC0E6E0D-B554-4394-A3F6-DE23A7E152B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC0E6E0D-B554-4394-A3F6-DE23A7E152B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC0E6E0D-B554-4394-A3F6-DE23A7E152B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2418EFA-CEC3-4909-9E05-D2512A46D412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2418EFA-CEC3-4909-9E05-D2512A46D412}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2418EFA-CEC3-4909-9E05-D2512A46D412}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2418EFA-CEC3-4909-9E05-D2512A46D412}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC97FB2D-F999-4ACB-920B-F00F7167F953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC97FB2D-F999-4ACB-920B-F00F7167F953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC97FB2D-F999-4ACB-920B-F00F7167F953}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC97FB2D-F999-4ACB-920B-F00F7167F953}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EC97FB2D-F999-4ACB-920B-F00F7167F953} = {01724A11-73F6-4523-93EF-E7D6FF4FB135}
 	EndGlobalSection
 EndGlobal
