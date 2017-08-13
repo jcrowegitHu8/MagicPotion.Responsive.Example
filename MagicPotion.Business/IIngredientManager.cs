@@ -10,5 +10,6 @@ namespace MagicPotion.Business
 		IEnumerable<Effect> GetAllEffects();
 		IEnumerable<Mood> GetAllMoods();
 		IngredientMixingResult Mix(int moodId, int ingredientId1, int ingredientId2);
+		Ingredient UpsertIngredient(Ingredient ingredient);
 	}
 }

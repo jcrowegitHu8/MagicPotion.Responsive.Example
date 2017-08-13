@@ -16,6 +16,7 @@ namespace MagicPotion.Repository
 			{
 
 				const string query = @"Select i.Id, i.Name, i.Color, i.Description, typ.Name as 'Effect'
+									  ,i.ImportId
 				                     from ingredients i
 				                     left outer join typeoptions typ on i.effectType = typ.id ";
 				
@@ -47,7 +48,48 @@ namespace MagicPotion.Repository
 		    }
 		}
 
+	    public Ingredient UpsertIngredient(Ingredient ingredient)
+	    {
+			using (var con = new SqlConnection(PotionDBConnectionString))
+			{
+				const string query = @"MERGE INTO ingredients AS Target
+                                        USING (VALUES
+                                                        (@Id,@Description,@Name,@Color,@ImportId,@EffectType)
+                                            ) AS Source ([Id],[Description],[Name],[Color],[ImportId],[EffectType])
+                                            ON (Target.[Id] = Source.[Id])
+                                        WHEN MATCHED THEN
+                                             UPDATE SET
+                                             [Description] = Source.[Description]
+                                             ,[Name] = Source.[Name]
+                                             ,[Color] = Source.[Color]
+                                             ,[ImportId] = Source.[ImportId]
+											 ,[EffectType] = Source.[EffectType]
+                                        WHEN NOT MATCHED BY TARGET THEN
+                                             INSERT([Description],[Name],[Color],[ImportId],[EffectType])
+                                             VALUES(Source.[Description],Source.[Name],Source.[Color],[ImportId],[EffectType]);
+                                        Select top 1 * From ingredients 
+										Where ID = (SELECT CASE WHEN SCOPE_IDENTITY() is NULL
+                                                    THEN @Id
+                                                    ELSE SCOPE_IDENTITY()
+                                                    END);";
+
+				var result = con.QuerySingleOrDefault<Ingredient>(query
+					, new
+					{
+						ingredient.Id,
+						ingredient.Name,
+						ingredient.Description,
+						ingredient.Color,
+						EffectType = ingredient.EffectType,
+						ingredient.ImportId
+					});
+
+				return result;
+			}
+		}
 
 
-    }
+
+
+	}
 }

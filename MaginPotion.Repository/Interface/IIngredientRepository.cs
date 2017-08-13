@@ -7,5 +7,6 @@ namespace MagicPotion.Repository
 	{
 		List<Ingredient> GetAllIngredients();
 		List<IngredientMix> GetAllMixes();
+		Ingredient UpsertIngredient(Ingredient ingredient);
 	}
 }

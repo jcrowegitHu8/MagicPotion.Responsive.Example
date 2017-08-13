@@ -97,5 +97,10 @@ namespace MagicPotion.Business
 
 			return false;
 		}
+
+		public Ingredient UpsertIngredient(Ingredient ingredient)
+		{
+			return _potionRepo.UpsertIngredient(ingredient);
+		}
 	}
 }
