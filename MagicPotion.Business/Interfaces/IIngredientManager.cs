@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using MagicPotion.Objects;
 
 namespace MagicPotion.Business
@@ -10,5 +11,6 @@ namespace MagicPotion.Business
 		IEnumerable<Effect> GetAllEffects();
 		IEnumerable<Mood> GetAllMoods();
 		Ingredient UpsertIngredient(Ingredient ingredient);
+		IngredientUploadResult ParseCsvAndUpdateIngredients(Stream fileStream);
 	}
 }

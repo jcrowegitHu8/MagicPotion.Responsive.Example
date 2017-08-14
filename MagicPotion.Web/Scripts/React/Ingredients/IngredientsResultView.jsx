@@ -22,6 +22,7 @@ var IngredientsResultView = React.createClass({
 					<td data-title={'Color'}>{info.Color}</td>
 					<td data-title={'Description'}>{info.Description}&nbsp;</td>
 					<td data-title={'Effect'}>{info.Effect}&nbsp;</td>
+					<td data-title={'ImportId'}>{info.ImportId}&nbsp;</td>
 				</tr >
 			);
 		}, this);
@@ -46,12 +47,6 @@ var IngredientsResultView = React.createClass({
 							<div>
 								<span className="panel-title" >Ingredients</span>
 
-								<button className="btn btn-outline btn-primary pull-right" onClick={this.refresh}>
-									<i className="fa fa-refresh"></i> Refresh
-								</button>
-								<button className="btn btn-outline btn-primary pull-right" onClick={this.props.add}>
-									<i className="fa fa-plus"></i> Add
-								</button>
 							</div>
 						</div>
 						<table className="table table-hover table-bordered table-striped my-md-responsive-table">
@@ -62,6 +57,7 @@ var IngredientsResultView = React.createClass({
 								<th>Color</th>
 								<th>Description</th>
 								<th>Effect</th>
+								<th>ImportId</th>
 							</tr>
 							</thead>
 							<tbody>
