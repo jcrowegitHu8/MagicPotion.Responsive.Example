@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{01724A11
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicPotion.Tests", "MagicPotion.Tests\MagicPotion.Tests.csproj", "{EC97FB2D-F999-4ACB-920B-F00F7167F953}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{D45A2533-DAAA-4A4C-800E-2BC2190E9932}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{A56D6A56-3332-4A4F-84C0-15116BB846D6} = {D45A2533-DAAA-4A4C-800E-2BC2190E9932}
+		{41129A1D-6B6F-4993-9539-2ABF04FA5559} = {D45A2533-DAAA-4A4C-800E-2BC2190E9932}
+		{F2418EFA-CEC3-4909-9E05-D2512A46D412} = {D45A2533-DAAA-4A4C-800E-2BC2190E9932}
 		{EC97FB2D-F999-4ACB-920B-F00F7167F953} = {01724A11-73F6-4523-93EF-E7D6FF4FB135}
 	EndGlobalSection
 EndGlobal

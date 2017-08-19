@@ -16,8 +16,10 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace MagicPotion.Web.DependencyResolution {
+	using AutoMapper;
 	using MagicPotion.Business;
 	using MagicPotion.Repository;
+	using MagicPotion.Web.App_Start;
 	using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
 	
@@ -34,7 +36,14 @@ namespace MagicPotion.Web.DependencyResolution {
 	        For<IIngredientRepository>().Use<IngredientRepository>();
 	        For<ITypeOptionRepository>().Use<TypeOptionRepository>();
 	        For<IIngredientMixingManager>().Use<IngredientMixingManager>();
-        }
+
+	        //For each Profile, include that profile in the MapperConfiguration
+	        var config = AutoMapperConfig.RegisterMappings();
+	        //Create a mapper that will be used by the DI container
+	        var mapper = config.CreateMapper();
+
+	        For<IMapper>().Use(mapper);
+		}
 
         #endregion
     }

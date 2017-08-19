@@ -9,14 +9,30 @@ namespace MagicPotion.Repository
 {
     public class IngredientRepository :BaseRepository, IIngredientRepository
     {
-		
+	    public Ingredient GetIngredient(int id)
+	    {
+			using (var con = new SqlConnection(PotionDBConnectionString))
+			{
+
+				const string query = @"Select i.Id, i.Name, i.Color, i.Description, typ.Name as 'Effect'
+									  ,i.ImportId,i.effectType
+				                     from ingredients i
+				                     left outer join typeoptions typ on i.effectType = typ.id
+									 where i.id = @id";
+
+				var result = con.QueryFirstOrDefault<Ingredient>(query, new{id});
+				return result;
+			}
+		}
+
+
 		public List<Ingredient> GetAllIngredients()
 	    {
 			using (var con = new SqlConnection(PotionDBConnectionString))
 			{
 
 				const string query = @"Select i.Id, i.Name, i.Color, i.Description, typ.Name as 'Effect'
-									  ,i.ImportId
+									  ,i.ImportId,i.effectType
 				                     from ingredients i
 				                     left outer join typeoptions typ on i.effectType = typ.id ";
 				

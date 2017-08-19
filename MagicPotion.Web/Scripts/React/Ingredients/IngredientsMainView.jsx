@@ -3,6 +3,11 @@
 		return {
 			initData: [],
 			showLoadingBox: false,
+			editIngredientModalData: {
+				show: false,
+				editId: null,
+				title: 'Edit Ingredient',
+			}
 		};
 	},
 
@@ -22,7 +27,17 @@
 
 	handleEditIngredient: function (e) {
 		var id = e.target.closest('tr').getAttribute('data-id');
-		window.location = this.props.editIngredientUrl + '?id=' + id;
+		this.state.editIngredientModalData.show = true;
+		this.state.editIngredientModalData.editId = id;
+		this.setState({ editIngredientModalData: this.state.editIngredientModalData });
+	},
+
+	handleCloseModal(refresh) {
+		this.state.editIngredientModalData.show = false;
+		this.setState({ editIngredientModalData: this.state.editIngredientModalData });
+		if (refresh) {
+			this.handleRefresh();
+		}
 	},
 
 	handleAddIngredient(e) {
@@ -32,6 +47,8 @@
 	componentDidMount: function () {
 		this.handleRefresh();
 	},
+
+	
 
 
 	render: function () {
@@ -43,8 +60,15 @@
 				<IngredientsResultView
 					data={this.state.initData}
 					refresh={this.handleRefresh}
-					edit={this.handleEditIngredient}
+					onEditIngredient={this.handleEditIngredient}
 					add={this.handleAddIngredient}
+				/>
+				<IngredientEditModal
+					parentState={this.state.editIngredientModalData}
+					editId={this.state.editIngredientModalData.editId}
+					effectsUrl={this.props.getEffectsUrl}
+					editUrl={this.props.editIngredientUrl}
+					onClose={this.handleCloseModal}
 				/>
 			</div>
 		);
@@ -57,6 +81,7 @@ if (targetElement) {
 		<IngredientsMainView
 			getInitDataUrl="/Ingredient/GetListviewInitData"
 			editIngredientUrl="/Ingredient/Edit"
+			getEffectsUrl="/Ingredient/GetEffectsList"
 		/>,
 		targetElement
 	);

@@ -21,6 +21,11 @@ namespace MagicPotion.Business
 			_typeOptionRepo = typeOptionRepo;
 		}
 
+		public Ingredient GetIngredient(int id)
+		{
+			return _potionRepo.GetIngredient(id);
+		}
+
 		public IEnumerable<Ingredient> GetAllIngredients()
 		{
 			return _potionRepo.GetAllIngredients();

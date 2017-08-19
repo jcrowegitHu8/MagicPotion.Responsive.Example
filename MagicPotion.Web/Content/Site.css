@@ -220,3 +220,8 @@ textarea {
 .btn-danger.btn-outline:hover {
 	color: white;
 }
+
+.requiredField:after {
+	content: ' *';
+	color: #ff0000;
+}

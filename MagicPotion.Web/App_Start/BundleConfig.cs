@@ -29,12 +29,24 @@ namespace MagicPotion.Web
 			{
 				new BabelTransform() // jsx order is important!! make sure children load first
 			}).Include(
+				//Helpers
+				"~/Scripts/React/Helpers/DataBindHelper.js",
+				//Shared
 				"~/Scripts/React/Shared/LabelValueDropdown.jsx",
 				"~/Scripts/React/Shared/DropDown.jsx",
 				"~/Scripts/React/Shared/LoadingModalView.jsx",
+				//Validation
+				"~/Scripts/React/ControlsWithValidation/RulesRunner.js",
+				"~/Scripts/React/ControlsWithValidation/ErrorView.jsx",
+				"~/Scripts/React/ControlsWithValidation/TextWithValidation.jsx",
+				"~/Scripts/React/ControlsWithValidation/TextAreaWithValidation.jsx",
+				"~/Scripts/React/ControlsWithValidation/DropDownWithValidation.jsx",
+				"~/Scripts/React/ControlsWithValidation/LabelValueDropDownWithValidation.jsx",
+				//Ingredients
+				"~/Scripts/React/Ingredients/IngredientEditModal.jsx",
 				"~/Scripts/React/Ingredients/IngredientsResultView.jsx",
 				"~/Scripts/React/Ingredients/IngredientsMainView.jsx",
-
+				//Mixing
 				"~/Scripts/React/IngredientMixing/IngredientMixListView.jsx",
 				"~/Scripts/React/IngredientMixing/IngredientMixingTool.jsx",
 				"~/Scripts/React/IngredientMixing/IngredientMixingMainView.jsx"

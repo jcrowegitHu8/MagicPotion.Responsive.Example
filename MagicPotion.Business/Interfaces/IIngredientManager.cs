@@ -6,6 +6,7 @@ namespace MagicPotion.Business
 {
 	public interface IIngredientManager
 	{
+		Ingredient GetIngredient(int id);
 		IEnumerable<Ingredient> GetAllIngredients();
 		IEnumerable<IngredientMix> GetAllMixes();
 		IEnumerable<Effect> GetAllEffects();

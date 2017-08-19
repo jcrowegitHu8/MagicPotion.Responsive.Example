@@ -199,6 +199,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\ReactConfig.cs" />
@@ -247,6 +248,7 @@
     </Compile>
     <Compile Include="Models\Post\IngredientMixingPostModel.cs" />
     <Compile Include="Models\View\IngredientMixingViewModel.cs" />
+    <Compile Include="Models\Post\IngredientPostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -294,14 +296,22 @@
     <Content Include="Scripts\React\CdnFallback\react-dom.min.js" />
     <Content Include="Scripts\React\CdnFallback\react.js" />
     <Content Include="Scripts\React\CdnFallback\react.min.js" />
+    <Content Include="Scripts\React\ControlsWithValidation\DropDownWithValidation.jsx" />
+    <Content Include="Scripts\React\ControlsWithValidation\ErrorView.jsx" />
+    <Content Include="Scripts\React\ControlsWithValidation\LabelValueDropDownWithValidation.jsx" />
+    <Content Include="Scripts\React\ControlsWithValidation\TextAreaWithValidation.jsx" />
+    <Content Include="Scripts\React\ControlsWithValidation\TextWithValidation.jsx" />
+    <Content Include="Scripts\React\Helpers\DataBindHelper.js" />
     <Content Include="Scripts\React\IngredientMixing\IngredientMixingMainView.jsx" />
     <Content Include="Scripts\React\IngredientMixing\IngredientMixingTool.jsx" />
     <Content Include="Scripts\React\IngredientMixing\IngredientMixListView.jsx" />
+    <Content Include="Scripts\React\Ingredients\IngredientEditModal.jsx" />
     <Content Include="Scripts\React\Ingredients\IngredientsMainView.jsx" />
     <Content Include="Scripts\React\Ingredients\IngredientsResultView.jsx" />
     <Content Include="Scripts\React\Shared\DropDown.jsx" />
     <Content Include="Scripts\React\Shared\LabelValueDropDown.jsx" />
     <Content Include="Scripts\React\Shared\LoadingModalView.jsx" />
+    <Content Include="Scripts\React\ControlsWithValidation\RulesRunner.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config" />
