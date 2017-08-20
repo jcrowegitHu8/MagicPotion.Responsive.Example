@@ -16,12 +16,10 @@ var ruleRunner = function ruleRunner(field, name) {
 		var _iteratorNormalCompletion = true;
 		var _didIteratorError = false;
 		var _iteratorError = undefined;
-		debugger;
 		try {
 			for (var _iterator = validations[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 				var v = _step.value;
 				var prop = getDescendantProp(state, field);
-				debugger;
 				var errorMessageFunc = v(prop, state);
 				if (errorMessageFunc) {
 					return _returnMessageFunction({}, field, errorMessageFunc(name));

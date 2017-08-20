@@ -43,6 +43,7 @@ namespace MagicPotion.Web
 				"~/Scripts/React/ControlsWithValidation/DropDownWithValidation.jsx",
 				"~/Scripts/React/ControlsWithValidation/LabelValueDropDownWithValidation.jsx",
 				//Recipes
+				"~/Scripts/React/Recipes/RecipeEditModal.jsx",
 				"~/Scripts/React/Recipes/RecipesResultView.jsx",
 				"~/Scripts/React/Recipes/RecipesMainView.jsx",
 				//Ingredients

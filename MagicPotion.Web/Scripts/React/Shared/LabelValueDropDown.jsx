@@ -38,8 +38,9 @@
 				className='form-control'
 				value={selectedValue}
 				onChange={this.handleChange}
+				id={this.props.id || this.props.dataBindName}
 				data-bind-name={this.props.bindName || this.props.dataBindName}>
-				<option value="">Choose your option...</option>
+				<option value="">{this.props.optionText || 'Choose your option...'}</option>
 				{opts}
 			</select>
 		);

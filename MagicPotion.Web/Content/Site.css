@@ -225,3 +225,8 @@ textarea {
 	content: ' *';
 	color: #ff0000;
 }
+
+.rounded {
+	border-radius: 3px;
+	border: 1px solid #ddd;
+}

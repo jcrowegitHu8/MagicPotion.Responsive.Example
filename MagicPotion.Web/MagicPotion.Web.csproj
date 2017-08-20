@@ -251,6 +251,7 @@
     <Compile Include="Models\Post\IngredientMixingPostModel.cs" />
     <Compile Include="Models\View\IngredientMixingViewModel.cs" />
     <Compile Include="Models\Post\IngredientPostModel.cs" />
+    <Compile Include="Models\View\RecipeEditViewModel.cs" />
     <Compile Include="Models\View\RecipesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -311,6 +312,7 @@
     <Content Include="Scripts\React\Ingredients\IngredientEditModal.jsx" />
     <Content Include="Scripts\React\Ingredients\IngredientsMainView.jsx" />
     <Content Include="Scripts\React\Ingredients\IngredientsResultView.jsx" />
+    <Content Include="Scripts\React\Recipes\RecipeEditModal.jsx" />
     <Content Include="Scripts\React\Recipes\RecipesResultView.jsx" />
     <Content Include="Scripts\React\Recipes\RecipesMainView.jsx" />
     <Content Include="Scripts\React\Shared\DropDown.jsx" />
@@ -319,6 +321,7 @@
     <Content Include="Scripts\React\ControlsWithValidation\RulesRunner.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\React\ControlsWithLayout\TextWithValidationDefaultLayout.jsx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

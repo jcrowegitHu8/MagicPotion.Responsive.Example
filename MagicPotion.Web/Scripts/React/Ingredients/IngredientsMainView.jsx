@@ -35,7 +35,7 @@
 	handleCloseModal(refresh) {
 		this.state.editIngredientModalData.show = false;
 		this.setState({ editIngredientModalData: this.state.editIngredientModalData });
-		if (refresh) {
+		if (refresh === true) {
 			this.handleRefresh();
 		}
 	},

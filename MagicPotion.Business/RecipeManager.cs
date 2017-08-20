@@ -22,5 +22,17 @@ namespace MagicPotion.Business
 			var result = _recipeRepo.GetAllRecipes();
 			return result;
 		}
+
+		public Recipe GetRecipe(int id)
+		{
+			var result = _recipeRepo.GetRecipe(id);
+			return result;
+		}
+
+		public Recipe UpsertRecipe(Recipe recipe)
+		{
+			var result = _recipeRepo.UpsertRecipe(recipe);
+			return result;
+		}
 	}
 }

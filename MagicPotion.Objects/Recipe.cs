@@ -26,12 +26,15 @@ namespace MagicPotion.Objects
 	/// <summary>
 	/// Ordered Ingredients for a Recipe.
 	/// </summary>
-	public class RecipeIngredient : Ingredient
+	public class RecipeIngredient
 	{
 		/// <summary>
 		/// This indicates our order of items.
 		/// </summary>
 		public int? Predecessor { get; set; }
 		public int RecipeId { get; set; }
+		public int IngredientId { get; set; }
+		public int Id { get; set; }
+		public string Name { get; set; }
 	}
 }

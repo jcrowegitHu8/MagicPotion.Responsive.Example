@@ -35,7 +35,7 @@
 	handleCloseModal(refresh) {
 		this.state.editRecipeModalData.show = false;
 		this.setState({ editRecipeModalData: this.state.editRecipeModalData });
-		if (refresh) {
+		if (refresh=== true) {
 			this.handleRefresh();
 		}
 	},
@@ -63,7 +63,14 @@
 					onEditRecipe={this.handleEditRecipe}
 					add={this.handleAddRecipe}
 				/>
-			
+				<RecipeEditModal
+					parentState={this.state.editRecipeModalData}
+					editId={this.state.editRecipeModalData.editId}
+					effectsUrl={this.props.getEffectsUrl}
+					moodsUrl={this.props.getMoodsUrl}
+					editUrl={this.props.editRecipeUrl}
+					onClose={this.handleCloseModal}
+				/>
 			</div>
 		);
 	}
@@ -76,6 +83,7 @@ if (targetElement) {
 			getInitDataUrl="/Recipe/GetListviewInitData"
 			editRecipeUrl="/Recipe/Edit"
 			getEffectsUrl="/Type/GetEffectsList"
+			getEffectsUrl="/Type/GetMoodsList"
 		/>,
 		targetElement
 	);
