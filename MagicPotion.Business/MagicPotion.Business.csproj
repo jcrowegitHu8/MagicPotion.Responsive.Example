@@ -45,7 +45,9 @@
     <Compile Include="Interfaces\IIngredientMixingManager.cs" />
     <Compile Include="IngredientManager.cs" />
     <Compile Include="IngredientMixingManager.cs" />
+    <Compile Include="Interfaces\IRecipeManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecipeManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MagicPotion.Objects\MagicPotion.Objects.csproj">

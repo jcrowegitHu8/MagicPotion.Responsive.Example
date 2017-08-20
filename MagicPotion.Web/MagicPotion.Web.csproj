@@ -237,6 +237,8 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\IngredientController.cs" />
     <Compile Include="Controllers\IngredientMixingController.cs" />
+    <Compile Include="Controllers\RecipeController.cs" />
+    <Compile Include="Controllers\TypeController.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
@@ -249,6 +251,7 @@
     <Compile Include="Models\Post\IngredientMixingPostModel.cs" />
     <Compile Include="Models\View\IngredientMixingViewModel.cs" />
     <Compile Include="Models\Post\IngredientPostModel.cs" />
+    <Compile Include="Models\View\RecipesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -308,6 +311,8 @@
     <Content Include="Scripts\React\Ingredients\IngredientEditModal.jsx" />
     <Content Include="Scripts\React\Ingredients\IngredientsMainView.jsx" />
     <Content Include="Scripts\React\Ingredients\IngredientsResultView.jsx" />
+    <Content Include="Scripts\React\Recipes\RecipesResultView.jsx" />
+    <Content Include="Scripts\React\Recipes\RecipesMainView.jsx" />
     <Content Include="Scripts\React\Shared\DropDown.jsx" />
     <Content Include="Scripts\React\Shared\LabelValueDropDown.jsx" />
     <Content Include="Scripts\React\Shared\LoadingModalView.jsx" />
@@ -333,8 +338,11 @@
     <Content Include="Views\Shared\_Scripts.cshtml" />
     <Content Include="Views\IngredientMixing\Index.cshtml" />
     <Content Include="Views\Ingredient\UploadFile.cshtml" />
+    <Content Include="Views\Recipe\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Type\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>

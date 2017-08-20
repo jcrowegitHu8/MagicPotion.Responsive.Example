@@ -51,7 +51,10 @@
     <Compile Include="Interface\IIngredientRepository.cs" />
     <Compile Include="IngredientRepository.cs" />
     <Compile Include="Interface\ITypeOptionRepository.cs" />
+    <Compile Include="Interface\IRecipeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecipeRepository.cs" />
+    <Compile Include="AutoMapperRepositoryProfile.cs" />
     <Compile Include="TypeOptionRepository.cs" />
   </ItemGroup>
   <ItemGroup>

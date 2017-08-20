@@ -36,6 +36,8 @@ namespace MagicPotion.Web.DependencyResolution {
 	        For<IIngredientRepository>().Use<IngredientRepository>();
 	        For<ITypeOptionRepository>().Use<TypeOptionRepository>();
 	        For<IIngredientMixingManager>().Use<IngredientMixingManager>();
+	        For<IRecipeRepository>().Use<RecipeRepository>();
+	        For<IRecipeManager>().Use<RecipeManager>();
 
 	        //For each Profile, include that profile in the MapperConfiguration
 	        var config = AutoMapperConfig.RegisterMappings();

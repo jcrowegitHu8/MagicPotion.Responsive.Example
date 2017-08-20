@@ -18,13 +18,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Magic Potion Mixer", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Magic Potion Mixer", "Index", "IngredientMixing", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 	                <li>@Html.ActionLink("Ingredients", "ListView","Ingredient", new { area = "" }, null)</li>
 	                <li>@Html.ActionLink("Mixing", "Index","IngredientMixing", new { area = "" }, null)</li>
 	                <li>@Html.ActionLink("Upload Ingredients", "UploadFile","Ingredient", new { area = "" }, null)</li>
+	                <li>@Html.ActionLink("Recipes", "Index","Recipe", new { area = "" }, null)</li>
                 </ul>
             </div>
         </div>
