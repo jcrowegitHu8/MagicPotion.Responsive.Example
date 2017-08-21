@@ -23,12 +23,20 @@
 			}.bind(this);
 			xhr.send();
 		}.bind(this));
+    },
+
+	handleAddRecipe(e) {
+        this.state.editRecipeModalData.show = true;
+        this.state.editRecipeModalData.editId = 0;
+		this.state.editRecipeModalData.title = 'Add A Recipe';
+		this.setState({ editRecipeModalData: this.state.editRecipeModalData });
 	},
 
 	handleEditRecipe: function (e) {
 		var id = e.target.closest('tr').getAttribute('data-id');
 		this.state.editRecipeModalData.show = true;
-		this.state.editRecipeModalData.editId = id;
+        this.state.editRecipeModalData.editId = id;
+		this.state.editRecipeModalData.title = 'Edit A Recipe';
 		this.setState({ editRecipeModalData: this.state.editRecipeModalData });
 	},
 
@@ -40,10 +48,7 @@
 		}
 	},
 
-	handleAddRecipe(e) {
-		this.state.editRecipeModalData.show = true;
-		this.setState({ editRecipeModalData: this.state.editRecipeModalData });
-	},
+	
 
 	componentDidMount: function () {
 		this.handleRefresh();

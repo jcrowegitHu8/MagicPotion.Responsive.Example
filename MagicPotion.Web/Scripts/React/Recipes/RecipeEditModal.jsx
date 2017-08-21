@@ -66,7 +66,6 @@ var RecipeEditModal = React.createClass({
 
     handleSubmit: function(e) {
         e.preventDefault();
-        debugger;
 	    
         var postModel = this.state.data.Recipe;
         var xhr = new XMLHttpRequest();
@@ -97,8 +96,8 @@ var RecipeEditModal = React.createClass({
             return true;
         }
 
-
-        return true;
+	    
+        return false;
     },
 
     handleRefreshRecipeData(id) {
@@ -135,7 +134,7 @@ var RecipeEditModal = React.createClass({
 
     
 	handleChange(e) {
-        var data = this.data;
+        var data = this.state.data;
 	    var bindName = e.target.getAttribute('data-bind-name');
         DataBindHelper.assign(data, bindName, e.target.value);
         this.setState({ data });
@@ -296,7 +295,7 @@ var RecipeEditModal = React.createClass({
 
                     </div>
                 </div>
-                <div className="panel-body">
+                <div className="panel-body" style={{paddingTop:'0px',paddingBottom:'0px'}}>
                     {this.renderIngredientDetailViews()}
                 </div>
                 <div className="panel-footer">

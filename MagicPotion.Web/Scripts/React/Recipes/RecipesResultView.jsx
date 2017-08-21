@@ -48,11 +48,17 @@ var RecipesResultView = React.createClass({
 						<div className={'panel-heading clearfix'}>
 
 							<div>
-								<span className="panel-title" >Recipes</span>
+                                <span className="panel-title" >Recipes</span>
+								
 								<button className="btn btn-outline btn-primary pull-right"
 								        onClick={this.props.refresh}
 								        title="refresh">
 									<i className="fa fa-refresh"></i>
+                                </button>
+								<button className="btn btn-outline btn-primary pull-right"
+								        onClick={this.props.add}
+								        title="add">
+									<i className="fa fa-plus"></i>
 								</button>
 							</div>
 						</div>
