@@ -7,9 +7,9 @@ var RecipeEditModal = React.createClass({
     getDefaultProps() {
         return {
             validationRules: [
-                ruleRunner("Recipe.Name", "Name", requiredRule, minLengthRule(3)),
-                ruleRunner("Recipe.MoodType", "Mood", requiredRule),
-                ruleRunner("Recipe.EffectType", "Effect", requiredRule)
+                ruleRunner("Recipe.Name", "Name", requiredRuleString, minLengthRule(3)),
+                ruleRunner("Recipe.MoodType", "Mood", requiredRuleInt, enumGreaterThanRule(0)),
+                ruleRunner("Recipe.EffectType", "Effect", requiredRuleInt, enumGreaterThanRule(0))
             ]
         };
     },
@@ -92,8 +92,12 @@ var RecipeEditModal = React.createClass({
         // return a boolean value
         if (this.props.show === true ||
             (this.props.show === false && nextProps.show === true)) {
-            this.handleRefreshRecipeData(nextProps.editId);
-            return true;
+
+            if (DataTypeHelper.isNumber(nextProps.editId)
+                && this.props.editId !== nextProps.editId ) {
+		        this.handleRefreshRecipeData(nextProps.editId);
+	        }
+	        return true;
         }
 
 	    

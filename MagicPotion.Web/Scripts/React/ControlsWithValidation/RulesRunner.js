@@ -76,9 +76,31 @@ var minLengthError = function minLength(length) {
 	};
 };
 
+var enumGreaterThanError = function greaterThan(value) {
+	return function(fieldName) {
+		return fieldName + " must be a valid option";
+	};
+};
+
 /* End of Error Messages */
 
 /* Rules */
+
+var requiredRuleInt = function required(obj) {
+    if (isNumber(obj)) {
+		return null;
+	} else {
+		return isRequiredError;
+	}
+};
+
+var requiredRuleString = function required(obj) {
+	if (obj && obj.length > 0) {
+		return null;
+	} else {
+		return isRequiredError;
+	}
+};
 
 var requiredRule = function required(obj) {
 	if (isNumber(obj)){
@@ -104,5 +126,14 @@ var minLengthRule = function minLength(length) {
 		return text.length >= length ? null : minLengthError(length);
 	};
 };
+
+var enumGreaterThanRule = function enumGreaterThanRule(value) {
+    return function(text) {
+        if (!DataTypeHelper.isNumber(text)) {
+	        return enumGreaterThanError(value);
+        }
+        return parseInt(text) > value ? null : enumGreaterThanError(value);
+	};
+}
 
 /* End of Rules */

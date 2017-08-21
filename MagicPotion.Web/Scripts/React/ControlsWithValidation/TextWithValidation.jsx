@@ -32,7 +32,7 @@
                     className={this.props.className}
                     type={this.props.type || "text"}
                     data-bind-name={this.props.dataBindName}
-                    value={this.props.text} onChange={this.handleChange} />
+                    value={this.props.text || ""} onChange={this.handleChange} />
                 <ErrorView display={this.shouldDisplayError()}>
                     <div className="validation-error" style={{ color: 'red' }}>
                         <span className="text">{this.errorsToDisplay()}</span>
