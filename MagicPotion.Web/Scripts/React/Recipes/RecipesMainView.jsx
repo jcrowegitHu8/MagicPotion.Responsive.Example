@@ -35,13 +35,14 @@
 	handleCloseModal(refresh) {
 		this.state.editRecipeModalData.show = false;
 		this.setState({ editRecipeModalData: this.state.editRecipeModalData });
-		if (refresh=== true) {
+		if (refresh === true) {
 			this.handleRefresh();
 		}
 	},
 
 	handleAddRecipe(e) {
-		window.location = this.props.editRecipeUrl;
+		this.state.editRecipeModalData.show = true;
+		this.setState({ editRecipeModalData: this.state.editRecipeModalData });
 	},
 
 	componentDidMount: function () {
@@ -64,11 +65,13 @@
 					add={this.handleAddRecipe}
 				/>
 				<RecipeEditModal
-					parentState={this.state.editRecipeModalData}
+					title={this.state.editRecipeModalData.title}
 					editId={this.state.editRecipeModalData.editId}
+					show={this.state.editRecipeModalData.show}
 					effectsUrl={this.props.getEffectsUrl}
 					moodsUrl={this.props.getMoodsUrl}
-					editUrl={this.props.editRecipeUrl}
+                    editUrl={this.props.editRecipeUrl}
+                    updateUrl={this.props.editRecipeUrl}
 					onClose={this.handleCloseModal}
 				/>
 			</div>
@@ -81,7 +84,7 @@ if (targetElement) {
 	ReactDOM.render(
 		<RecipesMainView
 			getInitDataUrl="/Recipe/GetListviewInitData"
-			editRecipeUrl="/Recipe/Edit"
+            editRecipeUrl="/Recipe/Edit"
 			getEffectsUrl="/Type/GetEffectsList"
 			getEffectsUrl="/Type/GetMoodsList"
 		/>,

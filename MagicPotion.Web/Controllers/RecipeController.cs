@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using AutoMapper;
 using MagicPotion.Business;
@@ -28,12 +29,19 @@ namespace MagicPotion.Web.Controllers
 			return View();
 		}
 
-		[HttpGet]
-		public JsonResult Edit(int id)
+		[System.Web.Mvc.HttpGet]
+		public JsonResult Edit(int? id)
 		{
 			var result = new RecipeEditViewModel();
 
-			result.Recipe = _recipeManager.GetRecipe(id);
+			if (id.HasValue)
+			{
+				result.Recipe = _recipeManager.GetRecipe(id.Value);
+			}
+			else
+			{
+				result.Recipe = new Recipe();
+			}
 			result.Effects = _ingredientManager.GetAllEffects();
 			result.Moods = _ingredientManager.GetAllMoods();
 			result.Ingredients = _ingredientManager.GetAllIngredients();
@@ -42,15 +50,15 @@ namespace MagicPotion.Web.Controllers
 
 		}
 
-		[HttpPost]
-		public JsonResult Edit(Recipe model)
+		[System.Web.Mvc.HttpPost]
+		public JsonResult Edit([FromBody]Recipe model)
 		{
 			var result = _recipeManager.UpsertRecipe(model);
 			return Json(result, JsonRequestBehavior.DenyGet);
 
 		}
 
-		[HttpGet]
+		[System.Web.Mvc.HttpGet]
 		public JsonResult GetListviewInitData()
 		{
 			var dtoResult = _recipeManager.GetAllRecipes();

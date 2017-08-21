@@ -30,6 +30,7 @@ namespace MagicPotion.Web
 				new BabelTransform() // jsx order is important!! make sure children load first
 			}).Include(
 				//Helpers
+				"~/Scripts/React/Helpers/DataTypeHelper.js",
 				"~/Scripts/React/Helpers/DataBindHelper.js",
 				//Shared
 				"~/Scripts/React/Shared/LabelValueDropdown.jsx",

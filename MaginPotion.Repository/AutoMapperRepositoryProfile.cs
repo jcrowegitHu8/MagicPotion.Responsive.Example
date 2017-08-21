@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using MagicPotion.Objects;
+using MagicPotion.Repository.DBTO;
+using Newtonsoft.Json;
 
 namespace MagicPotion.Repository
 {
@@ -15,10 +17,18 @@ namespace MagicPotion.Repository
 	{
 		public AutoMapperRepositoryProfile() {
 
+			CreateMap<RecipeDBTO, Recipe>()
+				.ForMember(dest => dest.Ingredients, opt => opt.MapFrom(src => 
+				JsonConvert.DeserializeObject<List<RecipeIngredient>>(src.Ingredients)));
+
+			CreateMap<Recipe, RecipeDBTO>()
+				.ForMember(dest => dest.Ingredients, opt => opt.MapFrom(src =>
+					JsonConvert.SerializeObject(src.Ingredients)));
+
 			CreateMap<IngredientMix, RecipeIngredient>().ReverseMap();
-			var converter = DynamicCollectionConverterWithIdMatchingAndPropertySpecified<RecipeIngredient, Recipe>
-				.Instance(ri => ri.RecipeId, r => r.Id, dest => dest.Ingredients);
-			CreateMap<List<RecipeIngredient>, List<Recipe>>().ConvertUsing(converter);
+			//var converter = DynamicCollectionConverterWithIdMatchingAndPropertySpecified<RecipeIngredient, Recipe>
+			//	.Instance(ri => ri.RecipeId, r => r.Id, dest => dest.Ingredients);
+			//CreateMap<List<RecipeIngredient>, List<Recipe>>().ConvertUsing(converter);
 		}
 	}
 
