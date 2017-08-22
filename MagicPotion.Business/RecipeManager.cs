@@ -17,6 +17,12 @@ namespace MagicPotion.Business
 			_recipeRepo = recipeRepo;
 		}
 
+		public bool DeleteRecipe(int id)
+		{
+			var result = _recipeRepo.DeleteRecipe(id);
+			return result;
+		}
+
 		public IEnumerable<Recipe> GetAllRecipes()
 		{
 			var result = _recipeRepo.GetAllRecipes();

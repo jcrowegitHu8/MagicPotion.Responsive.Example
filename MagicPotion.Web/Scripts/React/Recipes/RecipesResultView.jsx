@@ -24,7 +24,9 @@ var RecipesResultView = React.createClass({
 					<td data-title={'Effect'}>{info.Effect}&nbsp;</td>
 					<td data-title={'Action'}>
 						<button className="btn btn-default" onClick={this.handleEditRecipe}>
-							<i className="fa fa-pencil"></i></button>
+                            <i className="fa fa-pencil"></i></button>
+						<button className="btn btn-outline btn-danger" onClick={this.props.onDeleteRecipe}>
+							<i className="fa fa-trash"></i></button>
 					</td>
 				</tr >
 			);
@@ -56,7 +58,7 @@ var RecipesResultView = React.createClass({
 									<i className="fa fa-refresh"></i>
                                 </button>
 								<button className="btn btn-outline btn-primary pull-right"
-								        onClick={this.props.add}
+                                    onClick={this.props.onAddRecipe}
 								        title="add">
 									<i className="fa fa-plus"></i>
 								</button>

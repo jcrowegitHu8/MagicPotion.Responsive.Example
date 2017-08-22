@@ -37,7 +37,7 @@ var RecipeEditModal = React.createClass({
                 "Effects": [],
                 "Ingredients": []
             },
-			selectedIngredientIdToAdd:"",
+            selectedIngredientIdToAdd: "",
             effects: [],
             lastLoadedUrl: '',
             showErrors: false,
@@ -66,12 +66,12 @@ var RecipeEditModal = React.createClass({
 
     handleSubmit: function(e) {
         e.preventDefault();
-	    
+        debugger;
         var postModel = this.state.data.Recipe;
         var xhr = new XMLHttpRequest();
         xhr.open('POST', this.props.updateUrl, true);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        this.setState({ showLoadingBox: true }, function() {
+        this.setState({ showLoadingBox: true, lastLoadedUrl: "" }, function() {
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     this.props.onClose(true);
@@ -94,13 +94,13 @@ var RecipeEditModal = React.createClass({
             (this.props.show === false && nextProps.show === true)) {
 
             if (DataTypeHelper.isNumber(nextProps.editId)
-                && this.props.editId !== nextProps.editId ) {
-		        this.handleRefreshRecipeData(nextProps.editId);
-	        }
-	        return true;
+                && this.props.editId !== nextProps.editId) {
+                this.handleRefreshRecipeData(nextProps.editId);
+            }
+            return true;
         }
 
-	    
+
         return false;
     },
 
@@ -133,13 +133,13 @@ var RecipeEditModal = React.createClass({
     },
 
     handleIngredientIdToAddChanged(e) {
-        this.setState({ selectedIngredientIdToAdd: e.target.value});
+        this.setState({ selectedIngredientIdToAdd: e.target.value });
     },
 
-    
-	handleChange(e) {
+
+    handleChange(e) {
         var data = this.state.data;
-	    var bindName = e.target.getAttribute('data-bind-name');
+        var bindName = e.target.getAttribute('data-bind-name');
         DataBindHelper.assign(data, bindName, e.target.value);
         this.setState({ data });
     },
@@ -254,7 +254,7 @@ var RecipeEditModal = React.createClass({
 
         var ingredientId = $('#newIngredient option:selected').val();
         this.setState({ selectedIngredientIdToAdd: "" });
-	    
+
         if (ingredientId) {
             var ingredient = _.find(this.state.data.Ingredients, function(item) { return item.Id == ingredientId; });
             var newRecipeIngredient = { IngredientId: ingredient.Id, Name: ingredient.Name }
@@ -269,13 +269,21 @@ var RecipeEditModal = React.createClass({
         }
         if (this.state.data.Recipe.Ingredients.length === 0) {
             return (
-                <p>No Ingredients have been added.</p>
+                <div className="row rounded  row-item " key={0} >
+                    <div className="col-xs-12">
+                        <div className=""
+                            style={{ lineHeight: '38px', verticalAlign: 'middle', paddingTop: '2px' }}>
+                            No Ingredients have been added.
+			                </div>
+                    </div>
+
+                </div>
             );
         }
 
         return this.state.data.Recipe.Ingredients.map(function(info, index) {
             return (
-                <div className="row rounded" key={info.IngredientId} data-recipe-ingredient-id={info.IngredientId}>
+                <div className="row rounded  row-item " key={info.IngredientId} data-recipe-ingredient-id={info.IngredientId}>
                     <div className="col-xs-12">
                         <div className=""
                             style={{ lineHeight: '38px', verticalAlign: 'middle', paddingTop: '2px' }}>{info.Name}
@@ -289,19 +297,10 @@ var RecipeEditModal = React.createClass({
         }, this);
     },
 
-    renderIngredientSection() {
-
-        return (
-            <div className="panel panel-default">
-                <div className={'panel-heading clearfix'}>
-                    <div>
-                        <span className="panel-title">Ingredients</span>
-
-                    </div>
-                </div>
-                <div className="panel-body" style={{paddingTop:'0px',paddingBottom:'0px'}}>
-                    {this.renderIngredientDetailViews()}
-                </div>
+    renderAddItemControl() {
+        var items = this.getIngredientsToAdd();
+        if (items && items.length > 0) {
+            return (
                 <div className="panel-footer">
                     <div className="form-group input-group">
                         <LabelValueDropdown
@@ -316,8 +315,7 @@ var RecipeEditModal = React.createClass({
                             labelField="Name"
                             selectedValue={this.state.selectedIngredientIdToAdd}
                             dataBindName={"selectedIngredientIdToAdd"}
-							onChange={this.handleIngredientIdToAddChanged}
-                        />
+                            onChange={this.handleIngredientIdToAddChanged} />
                         <span className="input-group-btn">
                             <button className="btn btn-outline btn-primary"
                                 onClick={this.handleAddIngredient}
@@ -326,8 +324,27 @@ var RecipeEditModal = React.createClass({
                             </button>
                         </span>
                     </div>
+                </div>);
+        }
+        return (null);
+
+    },
+
+    renderIngredientSection() {
+
+        return (
+            <div className="panel panel-default">
+                <div className={'panel-heading clearfix'}>
+                    <div>
+                        <span className="panel-title">Ingredients</span>
+
+                    </div>
                 </div>
-            </div>
+                <div className="panel-body striped hover-highlight" style={{ paddingTop: '0px', paddingBottom: '0px' }}>
+                    {this.renderIngredientDetailViews()}
+                </div>
+                {this.renderAddItemControl()}
+            </div >
         );
     },
 

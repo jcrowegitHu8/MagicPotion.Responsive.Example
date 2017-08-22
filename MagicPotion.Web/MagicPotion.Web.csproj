@@ -305,6 +305,7 @@
     <Content Include="Scripts\React\ControlsWithValidation\LabelValueDropDownWithValidation.jsx" />
     <Content Include="Scripts\React\ControlsWithValidation\TextAreaWithValidation.jsx" />
     <Content Include="Scripts\React\ControlsWithValidation\TextWithValidation.jsx" />
+    <Content Include="Scripts\React\Shared\ConfirmDialog.jsx" />
     <Content Include="Scripts\React\Helpers\DataBindHelper.js" />
     <Content Include="Scripts\React\Helpers\DataTypeHelper.js" />
     <Content Include="Scripts\React\IngredientMixing\IngredientMixingMainView.jsx" />
@@ -322,7 +323,7 @@
     <Content Include="Scripts\React\ControlsWithValidation\RulesRunner.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\React\ControlsWithLayout\TextWithValidationDefaultLayout.jsx" />
+    <Content Include="Scripts\React\Controls\TextWithValidationDefaultLayout.jsx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

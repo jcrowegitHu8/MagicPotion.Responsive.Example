@@ -7,6 +7,10 @@
 				show: false,
 				editId: null,
 				title: 'Edit Recipe',
+            },
+			confirmDialogData: {
+                show: false,
+				eventSource: null
 			}
 		};
 	},
@@ -46,6 +50,33 @@
 		if (refresh === true) {
 			this.handleRefresh();
 		}
+    },
+
+    handleConfirmDeleteRecipe(e) {
+	    var id = e.target.closest('tr').getAttribute('data-id');
+        this.state.confirmDialogData.show = true;
+        this.state.confirmDialogData.eventSource = id;
+		this.setState({confirmDialogData:this.state.confirmDialogData});
+    },
+	handleCancelOrCloseDialog() {
+		this.state.confirmDialogData.show = false;
+		this.setState({ confirmDialogData: this.state.confirmDialogData });
+	},
+
+    handleDeleteRecipe(id) {
+	    
+		var xhr = new XMLHttpRequest();
+        xhr.open('POST', this.props.deleteRecipeUrl + '?id='+id, true);
+		xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		this.setState({ showLoadingBox: true }, function() {
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+                    this.props.handleCancelOrCloseDialog();
+				}
+
+			}.bind(this);
+			xhr.send();
+		}.bind(this));
 	},
 
 	
@@ -62,12 +93,24 @@
 		return (
 
 			<div>
-				<LoadingModalView show={this.state.showLoadingBox} />
+                <LoadingModalView show={this.state.showLoadingBox} />
+                <ConfirmDialog
+                    show={this.state.confirmDialogData.show}
+                    title={"Confirm Recipe Delete"}
+                    text={"Are you sure you want to delete this Recipe?  The cannot be undone!"}
+                    confirmButtonText={"Delete"}
+                    onConfirm={this.handleDeleteRecipe}
+                    onCancel={this.handleCancelOrCloseDialog}
+                    clickSource={this.state.confirmDialogData.eventSource}
+                    confirmButtonClassName={"btn btn-danger"}
+                    headerClassNames={"danger"}
+                />
 				<RecipesResultView
 					data={this.state.initData}
 					refresh={this.handleRefresh}
 					onEditRecipe={this.handleEditRecipe}
-					add={this.handleAddRecipe}
+                    onAddRecipe={this.handleAddRecipe}
+                    onDeleteRecipe={this.handleConfirmDeleteRecipe}
 				/>
 				<RecipeEditModal
 					title={this.state.editRecipeModalData.title}
@@ -76,7 +119,7 @@
 					effectsUrl={this.props.getEffectsUrl}
 					moodsUrl={this.props.getMoodsUrl}
                     editUrl={this.props.editRecipeUrl}
-                    updateUrl={this.props.editRecipeUrl}
+                    updateUrl={this.props.saveRecipeUrl}
 					onClose={this.handleCloseModal}
 				/>
 			</div>
@@ -90,8 +133,10 @@ if (targetElement) {
 		<RecipesMainView
 			getInitDataUrl="/Recipe/GetListviewInitData"
             editRecipeUrl="/Recipe/Edit"
+			saveRecipeUrl="/Recipe/Save"
+			deleteRecipeUrl="/Recipe/Delete"
 			getEffectsUrl="/Type/GetEffectsList"
-			getEffectsUrl="/Type/GetMoodsList"
+			getMoodsUrl="/Type/GetMoodsList"
 		/>,
 		targetElement
 	);

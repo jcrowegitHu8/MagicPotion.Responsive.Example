@@ -20,6 +20,22 @@ namespace MagicPotion.Repository
 			_mapper = mapper;
 		}
 
+		public bool DeleteRecipe(int id)
+		{
+			using (var con = new SqlConnection(PotionDBConnectionString))
+			{
+
+				const string query = @"DELETE FROM recipes WHERE id = @id";
+
+				var rowsAffected = con.Execute(query, new { id });
+				if (rowsAffected == 1)
+				{
+					return true;
+				}
+				return false;
+			}
+		}
+
 		public IEnumerable<Recipe> GetAllRecipes()
 		{
 			using (var con = new SqlConnection(PotionDBConnectionString))
@@ -55,7 +71,7 @@ namespace MagicPotion.Repository
 
 									 ";
 
-				var dbto = con.QuerySingleOrDefault<RecipeDBTO>(query, new {id});
+				var dbto = con.QuerySingleOrDefault<RecipeDBTO>(query, new { id });
 				var result = _mapper.Map<Recipe>(dbto);
 				return result;
 			}

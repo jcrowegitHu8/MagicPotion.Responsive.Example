@@ -36,6 +36,7 @@ namespace MagicPotion.Web
 				"~/Scripts/React/Shared/LabelValueDropdown.jsx",
 				"~/Scripts/React/Shared/DropDown.jsx",
 				"~/Scripts/React/Shared/LoadingModalView.jsx",
+				"~/Scripts/React/Shared/ConfirmDialog.jsx",
 				//Validation
 				"~/Scripts/React/ControlsWithValidation/RulesRunner.js",
 				"~/Scripts/React/ControlsWithValidation/ErrorView.jsx",

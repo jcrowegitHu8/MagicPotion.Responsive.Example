@@ -51,7 +51,14 @@ namespace MagicPotion.Web.Controllers
 		}
 
 		[System.Web.Mvc.HttpPost]
-		public JsonResult Edit([FromBody]Recipe model)
+		public JsonResult Delete(int id)
+		{
+			var result = _recipeManager.DeleteRecipe(id);
+			return Json(result, JsonRequestBehavior.DenyGet);
+		}
+
+		[System.Web.Mvc.HttpPost]
+		public JsonResult Save([FromBody]Recipe model)
 		{
 			var result = _recipeManager.UpsertRecipe(model);
 			return Json(result, JsonRequestBehavior.DenyGet);

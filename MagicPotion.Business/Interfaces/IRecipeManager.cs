@@ -8,5 +8,6 @@ namespace MagicPotion.Business
 		IEnumerable<Recipe> GetAllRecipes();
 		Recipe GetRecipe(int id);
 		Recipe UpsertRecipe(Recipe recipe);
+		bool DeleteRecipe(int id);
 	}
 }
