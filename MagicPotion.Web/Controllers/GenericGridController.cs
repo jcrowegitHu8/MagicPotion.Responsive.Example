@@ -24,10 +24,10 @@ namespace MagicPotion.Web.Controllers
             return View();
         }
 
-	    public ActionResult GetData(int dataId)
+	    public ActionResult GetData(int? dataId)
 	    {
 		    var ingredients = _ingredientManager.GetAllIngredients();
-			var grid = new GenericReactGrid(new List<string> { "Name", "Address", "Date Issued" }, dataId);
+			var grid = new GenericReactGrid(new List<string> { "Name", "Description", "Color" }, dataId??0);
 		    foreach (var rowData in ingredients)
 		    {
 			    grid.GridRow.Add(new Dictionary<string, object>

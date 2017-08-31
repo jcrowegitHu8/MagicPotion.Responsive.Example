@@ -55,7 +55,11 @@ namespace MagicPotion.Web
 				//Mixing
 				"~/Scripts/React/IngredientMixing/IngredientMixListView.jsx",
 				"~/Scripts/React/IngredientMixing/IngredientMixingTool.jsx",
-				"~/Scripts/React/IngredientMixing/IngredientMixingMainView.jsx"
+				"~/Scripts/React/IngredientMixing/IngredientMixingMainView.jsx",
+				//GenericGrid
+				"~/Scripts/React/GenericReactGrid/GenericReactGridSubDetailView.jsx",
+				"~/Scripts/React/GenericReactGrid/GenericReactGridDetailView.jsx",
+				"~/Scripts/React/GenericReactGrid/GenericReactGridMainView.jsx"
 			));
 
 

@@ -195,7 +195,7 @@ var GenericReactGridDetailView = React.createClass({
 
 
         return (
-            <table className="-grid" >
+			<table className="table table-hover table-bordered table-striped " >
                 <thead>
                     <tr>
                         {headers}

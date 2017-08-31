@@ -309,6 +309,7 @@
     <Content Include="Scripts\React\ControlsWithValidation\TextAreaWithValidation.jsx" />
     <Content Include="Scripts\React\ControlsWithValidation\TextWithValidation.jsx" />
     <Content Include="Scripts\React\GenericReactGrid\GenericReactGridDetailView.jsx" />
+    <Content Include="Scripts\React\GenericReactGrid\GenericReactGridMainView.jsx" />
     <Content Include="Scripts\React\GenericReactGrid\GenericReactGridSubDetailView.jsx" />
     <Content Include="Scripts\React\Shared\ConfirmDialog.jsx" />
     <Content Include="Scripts\React\Helpers\DataBindHelper.js" />
@@ -349,9 +350,9 @@
     <Content Include="Views\IngredientMixing\Index.cshtml" />
     <Content Include="Views\Ingredient\UploadFile.cshtml" />
     <Content Include="Views\Recipe\Index.cshtml" />
+    <Content Include="Views\GenericGrid\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\GenericGridExample\" />
     <Folder Include="Views\Type\" />
   </ItemGroup>
   <ItemGroup>
