@@ -235,6 +235,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\GenericGridController.cs" />
     <Compile Include="Controllers\IngredientController.cs" />
     <Compile Include="Controllers\IngredientMixingController.cs" />
     <Compile Include="Controllers\RecipeController.cs" />
@@ -248,6 +249,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\GenericReactGrid.cs" />
+    <Compile Include="Models\GenericReactTableResult.cs" />
     <Compile Include="Models\Post\IngredientMixingPostModel.cs" />
     <Compile Include="Models\View\IngredientMixingViewModel.cs" />
     <Compile Include="Models\Post\IngredientPostModel.cs" />
@@ -305,6 +308,8 @@
     <Content Include="Scripts\React\ControlsWithValidation\LabelValueDropDownWithValidation.jsx" />
     <Content Include="Scripts\React\ControlsWithValidation\TextAreaWithValidation.jsx" />
     <Content Include="Scripts\React\ControlsWithValidation\TextWithValidation.jsx" />
+    <Content Include="Scripts\React\GenericReactGrid\GenericReactGridDetailView.jsx" />
+    <Content Include="Scripts\React\GenericReactGrid\GenericReactGridSubDetailView.jsx" />
     <Content Include="Scripts\React\Shared\ConfirmDialog.jsx" />
     <Content Include="Scripts\React\Helpers\DataBindHelper.js" />
     <Content Include="Scripts\React\Helpers\DataTypeHelper.js" />
@@ -346,6 +351,7 @@
     <Content Include="Views\Recipe\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\GenericGridExample\" />
     <Folder Include="Views\Type\" />
   </ItemGroup>
   <ItemGroup>
