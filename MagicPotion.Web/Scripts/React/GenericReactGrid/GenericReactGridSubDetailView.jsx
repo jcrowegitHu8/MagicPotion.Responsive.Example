@@ -61,7 +61,7 @@ var GenericReactGridSubDetailView = React.createClass({
 
         if (this.props.isTopSubGrid) {
             return (
-                <table className="sub-grid" >
+				<table className="generic-sub-grid" >
                     <thead >
                         <tr>
                             {headers}
@@ -76,7 +76,7 @@ var GenericReactGridSubDetailView = React.createClass({
         }
 
         return (
-            <table className="sub-grid secondary">
+            <table className="generic-sub-grid secondary">
                 <thead>
                     <tr>
                         {headers}

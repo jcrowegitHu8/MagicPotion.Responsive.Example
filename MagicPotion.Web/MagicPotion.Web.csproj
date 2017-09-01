@@ -240,6 +240,7 @@
     <Compile Include="Controllers\IngredientMixingController.cs" />
     <Compile Include="Controllers\RecipeController.cs" />
     <Compile Include="Controllers\TypeController.cs" />
+    <Compile Include="CustomActionResults\CamelCaseJsonResult.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />

@@ -1,5 +1,151 @@
 ﻿
 
+<style>
+	
+	table.generic-list {
+		width: 100%;
+		border: none;
+		background-color: #FFFFFF;
+		margin-bottom: 10px;
+	}
+
+	table.generic-list td {
+		padding: 10px 8px;
+		font-size: 15px;
+		line-height: 21px;
+	}
+
+	table.generic-list tr.hoverContainer:hover > td {
+		background-color: #EFEFEF;
+	}
+
+	table.generic-grid {
+		border-collapse: collapse;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	table.generic-grid thead th {
+		font-size: 13px;
+		text-align: left;
+		font-weight: normal;
+		padding: 5px 8px 2px;
+	}
+
+	table.generic-grid tbody td {
+		border-top: 1px solid #E3E3E3;
+		border-bottom: 1px solid #E3E3E3;
+		font-size: 14px;
+		font-weight: bold;
+		text-align: left;
+		vertical-align: middle;
+	}
+
+	table.generic-grid tbody td:first-of-type {
+		border-left: 1px solid #E3E3E3;
+	}
+
+	table.generic-grid tbody td:last-of-type {
+		border-right: 1px solid #E3E3E3;
+		font-weight: normal;
+	}
+
+	table.generic-grid tbody tr:nth-child(odd) > td {
+		background-color: #F5F5F5;
+	}
+
+	table.generic-grid tbody tr:nth-child(even) > td {
+		background-color: #FFFFFF;
+	}
+
+	table.generic-grid tbody tr:hover > td {
+		background-color: #EFEFEF;
+	}
+
+	table.generic-grid .fa {
+		font-size: 16px;
+	}
+
+	table.generic-grid .fa-pencil {
+		color: #066EA5;
+	}
+
+	table.generic-grid .fa-trash {
+		color: #F76D69;
+	}
+
+	table.generic-sub-grid {
+		border-collapse: collapse;
+		width: 100%;
+		margin: -1px 0;
+	}
+
+	table.generic-grid table.generic-sub-grid {
+		margin-top: -29px;
+		min-height: 78px;
+	}
+
+	table.generic-grid table.generic-sub-grid.secondary {
+		margin-top: -1px;
+		min-height: 50px;
+	}
+
+	table.generic-grid table.generic-sub-grid.secondary thead th {
+		height: 0;
+		padding: 0;
+	}
+
+	table.generic-sub-grid thead th {
+		font-size: 13px;
+		text-align: left;
+		font-weight: normal;
+		padding: 5px 8px 2px;
+	}
+
+	table.generic-sub-grid tbody td {
+		border-top: 1px solid #E3E3E3;
+		border-bottom: 1px solid #E3E3E3;
+		font-size: 14px;
+		font-weight: bold;
+		text-align: left;
+		vertical-align: middle;
+	}
+
+	table.generic-sub-grid tbody td:first-of-type {
+		border-left: 1px solid #E3E3E3;
+	}
+
+	table.generic-sub-grid tbody td:last-of-type {
+		border-right: 1px solid #E3E3E3;
+		font-weight: normal;
+	}
+
+	table.generic-sub-grid tbody tr:nth-child(odd) > td {
+		background-color: #F5F5F5;
+	}
+
+	table.generic-sub-grid tbody tr:nth-child(even) > td {
+		background-color: #FFFFFF;
+	}
+
+	table.generic-sub-grid tbody tr:hover > td {
+		background-color: #EFEFEF;
+	}
+
+	table.generic-sub-grid .fa {
+		font-size: 16px;
+	}
+
+	table.generic-sub-grid .fa-pencil {
+		color: #066EA5;
+	}
+
+	table.generic-sub-grid .fa-trash {
+		color: #F76D69;
+	}
+
+</style>
+
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">Generic Grid Example</h1>

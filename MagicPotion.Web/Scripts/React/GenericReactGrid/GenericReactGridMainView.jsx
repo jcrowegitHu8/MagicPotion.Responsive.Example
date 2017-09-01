@@ -22,7 +22,7 @@
 
 
 	componentDidMount: function () {
-		this.handleRefresh();
+		//this.handleRefresh();
 	},
 
 
@@ -35,12 +35,22 @@
 
 				<div className="alert alert-info">
 					<p>The below grid is generic in that the server side code populates
-						an object that specifies the Grid, GridHeaders, Rows, SubGrid, SubGridHeaders, SubGridRows
+						an object that specifies the Grid, GridHeaders, Rows
 						to populate the table you see.</p>
 				</div>
 
 				<GenericReactGridDetailView
 					dataUrl={"/GenericGrid/GetData"}
+					refreshSelector={null}
+				/>
+
+				<div className="alert alert-info">
+					<p>The below grid is generic in that the server side code populates
+						an object that specifies the Grid, GridHeaders, Rows, SubGrid, SubGridHeaders, SubGridRows
+						to populate the table you see.</p>
+				</div>
+				<GenericReactGridDetailView
+					dataUrl={"/GenericGrid/GetDataWithSubGrid"}
 					refreshSelector={null}
 				/>
 			</div>
@@ -51,9 +61,7 @@
 var targetElement = document.getElementById("genericReactGridMainView");
 if (targetElement) {
 	ReactDOM.render(
-		<GenericReactGridMainView
-			getInitDataUrl="/IngredientMixing/GetInitData"
-		/>,
+		<GenericReactGridMainView/>,
 		targetElement
 	);
 };

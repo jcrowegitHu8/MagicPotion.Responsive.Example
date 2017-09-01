@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MagicPotion.Business;
+using MagicPotion.Web.CustomActionResults;
 using MagicPotion.Web.Models;
 
 namespace MagicPotion.Web.Controllers
@@ -50,7 +51,7 @@ namespace MagicPotion.Web.Controllers
 	    public ActionResult GetDataWithSubGrid(int? dataId)
 	    {
 		    var items = _recipeManager.GetAllRecipes();
-
+			 //Blank heading is for the sub grid to over lay its headings
 			var grid = new GenericReactGrid(new List<string> { "Id", "Name", "" }, dataId??0);
 		    foreach (var rowData in items)
 		    {
@@ -69,7 +70,8 @@ namespace MagicPotion.Web.Controllers
 			    {
 				    {"col1", rowData.Id},
 				    {"col2", rowData.Name},
-				    {"id", rowData.Id },
+				    {"col3", subGrid},
+					{"id", rowData.Id },
 			    });
 
 		    }
